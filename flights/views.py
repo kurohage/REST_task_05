@@ -29,7 +29,7 @@ class BookingDetails(RetrieveAPIView):
 class UpdateBooking(RetrieveUpdateAPIView):
 	queryset = Booking.objects.all()
 
-	# if admin, use updateadmin serializer class, else use the normal update class
+	# if admin, use normal serializer class, else use the non-admin update class
 	def get_serializer_class(self):
 		if self.request.user.is_staff:
 			return UpdateBookingSerializer
